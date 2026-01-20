@@ -7,7 +7,7 @@
 1. 插件中添加 `AutoMixinEditor` 模块用于在编辑器中对蓝图自动生成对应ts文件。
 2. 添加 `PuertsHelper` 模块，负责Runtime模式下调用Puerts的C++类，如使用其中的`PuertsGameInstance`
    类替换项目的游戏实例以运行虚拟机，并提供调整Debug参数，绑定相关TS方法等功能。
-3. 源码不包含V8虚拟机内核，请在Releases中下或前往[Puerts官方文档]([https://](https://puerts.github.io/docs/puerts/unreal/install))下载对应内核。
+3. 源码不包含V8虚拟机内核，请在Releases中下或前往[Puerts官方文档](https://puerts.github.io/docs/puerts/unreal/install)下载对应内核。
 
 ## 环境安装指引
 
