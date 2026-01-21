@@ -29,6 +29,21 @@ let BP_PuerT2 = class BP_PuerT2 {
     TS_MessageParam(param) {
         UE.KismetSystemLibrary.PrintString(this, "Message From Bind Function Param: " + param, true, true, UE.LinearColor.Yellow, 2.0);
     }
+    TS_CreateCubeActor() {
+        //蓝图类加载示例
+        //blueprint.load(UE.Game.Blueprint.TestBP.BP_TestCube.BP_TestCube_C);
+        const cubeClass = UE.Class.Load("/Game/Blueprint/TestBP/BP_TestCube.BP_TestCube_C");
+        const Actors = UE.NewArray(UE.Actor);
+        /* 检测场景中是否已存在BP_TestCube
+        UE.GameplayStatics.GetAllActorsOfClass(this, cubeClass,$ref(Actors));
+        for( let Act of Actors ){
+            if(Act != null){
+                Act.K2_DestroyActor();
+            }
+        } */
+        const BP_TestCube = UE.GameplayStatics.BeginDeferredActorSpawnFromClass(this, cubeClass, this.GetTransform());
+        UE.GameplayStatics.FinishSpawningActor(BP_TestCube, this.GetTransform());
+    }
 };
 exports.BP_PuerT2 = BP_PuerT2;
 exports.BP_PuerT2 = BP_PuerT2 = __decorate([

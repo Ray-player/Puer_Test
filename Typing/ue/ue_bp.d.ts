@@ -10827,7 +10827,7 @@ declare module "ue" {
     }
 
 // __TYPE_DECL_END
-// __TYPE_DECL_START: FC3760404CA6C8CAAB3E8DA7AC9A6D6B
+// __TYPE_DECL_START: BF20C06D4C34538BACEBE892E35C47EE
     namespace Game.Blueprint.BP_GameInstance {
         class BP_GameInstance_C extends UE.PuertsGameInstance {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
@@ -10890,7 +10890,7 @@ declare module "ue" {
     }
 
 // __TYPE_DECL_END
-// __TYPE_DECL_START: BD7982DF494526E4F55F0BA311113670
+// __TYPE_DECL_START: 99BD721D47E388DC2DF1D999D0E2ED71
     namespace Game.Blueprint.TestBP.BP_TestCube {
         class BP_TestCube_C extends UE.Actor {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
@@ -10903,10 +10903,15 @@ declare module "ue" {
              */
             ReceiveBeginPlay() : void;
             /*
+             *Called when the actor has been explicitly destroyed.
+             */
+            ReceiveDestroyed() : void;
+            /*
              *Event called every frame, if ticking is enabled
              */
             ReceiveTick(DeltaSeconds: number) : void;
             TS_FuncPuerts() : void;
+            TS_ReadStruct(outStr: $Ref<UE.Game.Blueprint.TestBP.S_TestStr.S_TestStr>) : void;
             static StaticClass(): Class;
             static Find(OrigInName: string, Outer?: Object): BP_TestCube_C;
             static Load(InName: string): BP_TestCube_C;
@@ -10924,8 +10929,9 @@ declare module "ue" {
             UberGraphFrame: UE.PointerToUberGraphFrame;
             BP_PuerT2_C_1_ExecuteUbergraph_TestMap_RefProperty: UE.Game.Blueprint.TestBP.BP_PuerT2.BP_PuerT2_C;
             ExecuteUbergraph_TestMap(EntryPoint: number) : void;
-            InpActEvt_One_K2Node_InputKeyEvent_0(Key: UE.Key) : void;
-            InpActEvt_Two_K2Node_InputKeyEvent_1(Key: UE.Key) : void;
+            InpActEvt_One_K2Node_InputKeyEvent_1(Key: UE.Key) : void;
+            InpActEvt_T_K2Node_InputKeyEvent_0(Key: UE.Key) : void;
+            InpActEvt_Two_K2Node_InputKeyEvent_2(Key: UE.Key) : void;
             /*
              *Event when play begins for this actor.
              */
@@ -10935,6 +10941,44 @@ declare module "ue" {
             static Load(InName: string): TestMap_C;
         
             __tid_TestMap_C_0__: boolean;
+        }
+        
+    }
+
+// __TYPE_DECL_END
+// __TYPE_DECL_START: 28745D2F43C144A7597E9E91EA0A9E61
+    namespace Game.Blueprint.TestBP.S_TestStr {
+        class S_TestStr {
+            constructor();
+            constructor(Name: string, Id: UE.Guid);
+            Name: string;
+            Id: UE.Guid;
+            /**
+             * @deprecated use StaticStruct instead.
+             */
+            static StaticClass(): ScriptStruct;
+            static StaticStruct(): ScriptStruct;
+            __tid_S_TestStr_0__: boolean;
+        }
+        
+    }
+
+// __TYPE_DECL_END
+// __TYPE_DECL_START: 80D901CA475CA2DBC60D6CBB36E22B4F
+    namespace Game.Blueprint.TestBP.WBP_TestPuer {
+        class WBP_TestPuer_C extends UE.UserWidget {
+            constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+            Button_Des: UE.Button;
+            Button_UseV: UE.Button;
+            SpinBox_X: UE.SpinBox;
+            SpinBox_Y: UE.SpinBox;
+            SpinBox_Z: UE.SpinBox;
+            TextBlock: UE.TextBlock;
+            static StaticClass(): Class;
+            static Find(OrigInName: string, Outer?: Object): WBP_TestPuer_C;
+            static Load(InName: string): WBP_TestPuer_C;
+        
+            __tid_WBP_TestPuer_C_0__: boolean;
         }
         
     }

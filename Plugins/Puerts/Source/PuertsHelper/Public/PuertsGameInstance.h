@@ -15,7 +15,7 @@ class PUERTSHELPER_API UPuertsGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 public:
-
+	virtual void Init() override;
 	virtual void OnStart() override;
 	virtual void Shutdown() override;
 	//TS入口文件名称
@@ -24,6 +24,9 @@ public:
 	//对应JS代码存放路径
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuertsHelper")
 	FString JsFileName = TEXT("JavaScript");
+	//防止TS中Mixin蓝图被GS回收的类引用
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuertsHelper")
+	TArray<TSubclassOf<UObject>> ClassContainer;
 	//是否开启调试模式
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuertsHelper|Debug")
 	bool bEnableDebug = true;
@@ -61,5 +64,6 @@ public:
 	static void CallPuerFuncString(FString FunctionName,FString Param,UObject* uobj);
 
 private:
+	void InitJsEnv();
 	TSharedPtr<puerts::FJsEnv> JsEnv;
 };

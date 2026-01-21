@@ -1,6 +1,6 @@
 ﻿import * as UE from "ue";
 import mixin from "../../mixin";
-import { $Ref, $set, $unref } from "puerts";
+import { $ref, $Ref, $set, $unref, blueprint } from "puerts";
 
 
 // 资产路径
@@ -33,5 +33,25 @@ export class BP_PuerT2 implements BP_PuerT2 {
         UE.KismetSystemLibrary.PrintString(this,"Message From Bind Function Param: " + param, true, true, UE.LinearColor.Yellow, 2.0);
     }
 
+    TS_CreateCubeActor(): void{
+        //蓝图类加载示例
+        //blueprint.load(UE.Game.Blueprint.TestBP.BP_TestCube.BP_TestCube_C);
+        const cubeClass = UE.Class.Load("/Game/Blueprint/TestBP/BP_TestCube.BP_TestCube_C");
+        const Actors = UE.NewArray(UE.Actor);
+        /* 检测场景中是否已存在BP_TestCube
+        UE.GameplayStatics.GetAllActorsOfClass(this, cubeClass,$ref(Actors));
+        for( let Act of Actors ){
+            if(Act != null){
+                Act.K2_DestroyActor();
+            }
+        } */
+
+        const BP_TestCube = UE.GameplayStatics.BeginDeferredActorSpawnFromClass(
+            this,
+            cubeClass,
+            this.GetTransform());
+        UE.GameplayStatics.FinishSpawningActor(BP_TestCube, this.GetTransform());
+        
+    }
     
 }
