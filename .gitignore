@@ -74,3 +74,4 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 Plugins/Puerts/ThirdParty/v8
 .idea
+Plugins/Puerts/Source/CSharpParamDefaultValueMetas
