@@ -63264,42 +63264,6 @@ declare module "ue" {
         __tid_BoxToMeshDataflowNode_0__: boolean;
     }
     
-    class PuertsGameInstance extends UE.GameInstance {
-        constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
-        JsEnvStartName: string;
-        JsFileName: string;
-        ClassContainer: TArray<UE.Class>;
-        bEnableDebug: boolean;
-        bWaitForDebugger: boolean;
-        DebugPort: number;
-        OnPuerFuncCall: $Delegate<(FunctionName: string, uobj: $Nullable<UE.Object>) => void>;
-        OnPuerFuncCallString: $Delegate<(FunctionName: string, Param: string, uobj: $Nullable<UE.Object>) => void>;
-        /*
-         *通过在Puerts入口类(MainGame.ts对应JsEnvStartName属性)中绑定该委托
-         *        * 实现通过函数名调用Puerts中的函数
-         */
-        PuerFuncCall__DelegateSignature(FunctionName: string, uobj: $Nullable<UE.Object>) : void;
-        PuerFuncCallString__DelegateSignature(FunctionName: string, Param: string, uobj: $Nullable<UE.Object>) : void;
-        /*
-         *@brief 调用Puerts中的函数
-         *@param FunctionName 函数名
-         *@param uobj         调用对象
-         */
-        static CallPuerFunc(FunctionName: string, uobj: $Nullable<UE.Object>) : void;
-        /*
-         *@brief 调用Puerts中的函数
-         *@param FunctionName 函数名
-         *@param Param        参数(string)
-         *@param uobj         调用对象
-         */
-        static CallPuerFuncString(FunctionName: string, Param: string, uobj: $Nullable<UE.Object>) : void;
-        static StaticClass(): Class;
-        static Find(OrigInName: string, Outer?: Object): PuertsGameInstance;
-        static Load(InName: string): PuertsGameInstance;
-    
-        __tid_PuertsGameInstance_0__: boolean;
-    }
-    
     class PointerToUberGraphFrame {
         constructor();
         /**
@@ -186680,6 +186644,42 @@ declare module "ue" {
         static StaticClass(): ScriptStruct;
         static StaticStruct(): ScriptStruct;
         __tid_PruneInCollectionDataflowNode_0__: boolean;
+    }
+    
+    class PuertsGameInstance extends UE.GameInstance {
+        constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+        JsEnvStartName: string;
+        JsFileName: string;
+        ClassContainer: TArray<UE.Class>;
+        bEnableDebug: boolean;
+        bWaitForDebugger: boolean;
+        DebugPort: number;
+        OnPuerFuncCall: $Delegate<(FunctionName: string, uobj: $Nullable<UE.Object>) => void>;
+        OnPuerFuncCallString: $Delegate<(FunctionName: string, Param: string, uobj: $Nullable<UE.Object>) => void>;
+        /*
+         *通过在Puerts入口类(MainGame.ts对应JsEnvStartName属性)中绑定该委托
+         *        * 实现通过函数名调用Puerts中的函数
+         */
+        PuerFuncCall__DelegateSignature(FunctionName: string, uobj: $Nullable<UE.Object>) : void;
+        PuerFuncCallString__DelegateSignature(FunctionName: string, Param: string, uobj: $Nullable<UE.Object>) : void;
+        /*
+         *@brief 调用Puerts中的函数
+         *@param FunctionName 函数名
+         *@param uobj         调用对象
+         */
+        static CallPuerFunc(FunctionName: string, uobj: $Nullable<UE.Object>) : void;
+        /*
+         *@brief 调用Puerts中的函数
+         *@param FunctionName 函数名
+         *@param Param        参数(string)
+         *@param uobj         调用对象
+         */
+        static CallPuerFuncString(FunctionName: string, Param: string, uobj: $Nullable<UE.Object>) : void;
+        static StaticClass(): Class;
+        static Find(OrigInName: string, Outer?: Object): PuertsGameInstance;
+        static Load(InName: string): PuertsGameInstance;
+    
+        __tid_PuertsGameInstance_0__: boolean;
     }
     
     class PuertsSetting extends UE.Object {
